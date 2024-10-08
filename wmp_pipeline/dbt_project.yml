@@ -1,0 +1,22 @@
+name: "wmp_pipeline"
+version: "1.0.0"
+profile: "wmp_pipeline"
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+models:
+  wmp_pipeline:
+    analysis:
+      +materialized: view
+      +schema: analysis
+    gold:
+      +materialized: view
+      +schema: gold
+    silver:
+      +materialized: view
+      +schema: silver
